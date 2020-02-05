@@ -13,6 +13,7 @@ struct BookBar {
     var folder:[Folder]?
     
     func addBookMarks(bookMark:[BookMarks]) -> Int {
+        
         return bookMark.count
     }
     

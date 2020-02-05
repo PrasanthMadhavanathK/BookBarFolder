@@ -9,5 +9,12 @@
 import Foundation
 
 struct  Folder:BookMarksAndFolderProtocol{
-    var name:String
+    var name = ""
+    
+    var bookMark: [BookMarks]?
+    var folder:[Folder]?
+    
+    func addBookmarksOrFolders(combinedlist:[BookMarksAndFolderProtocol]) -> Int{
+           return combinedlist.count
+       }
 }

@@ -75,4 +75,24 @@ class BookBarFolderTests: XCTestCase {
         
     }
     
+    func testaddingBookmarsAndFoldersInBookMarks()  {
+         let folder = Folder()
+         let bookMark1 = BookMarks()
+         let folder1 = Folder(name: "F1")
+         let bookMark2 = BookMarks()
+         let folder2 = Folder(name: "F2")
+
+        // let combinedArray = [folder1,bookMark1,folder2,bookMark2]
+         var combinedArray = [BookMarksAndFolderProtocol]()
+         combinedArray.append(bookMark1)
+         combinedArray.append(folder1)
+        combinedArray.append(bookMark2)
+        combinedArray.append(folder2)
+
+         let folderArrayCount = folder.addBookmarksOrFolders(combinedlist:combinedArray)
+         XCTAssertEqual(folderArrayCount, combinedArray.count, "count does not match")
+
+         
+     }
+    
 }
