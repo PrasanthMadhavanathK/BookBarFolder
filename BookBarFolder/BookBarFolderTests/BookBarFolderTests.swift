@@ -42,7 +42,7 @@ class BookBarFolderTests: XCTestCase {
         XCTAssertEqual(bookBar.folder?.count, 1, "Folder count is equal")
     }
     
-    func addBookMarktoBookBar(){
+    func testaddBookMarktoBookBar(){
         let bookBar = BookBar()
         let bookMark1 = BookMarks()
         let bookMark2 = BookMarks()
@@ -50,5 +50,14 @@ class BookBarFolderTests: XCTestCase {
         let bookmarkArrayCount = bookBar.addBookMarks(bookMark: bookmarkArray)
         XCTAssertEqual(bookmarkArrayCount, bookmarkArray.count, "count does not match")
     }
+    
+    func testaddFoldertoBookBar(){
+          let bookBar = BookBar()
+        let folder1 = Folder(name: "F1")
+          let folder2 = Folder(name: "F2")
+          let folderArray = [folder1,folder2]
+        let folderArrayCount = bookBar.addFolder(folders:folderArray)
+          XCTAssertEqual(folderArrayCount, folderArray.count, "count does not match")
+      }
 
 }
