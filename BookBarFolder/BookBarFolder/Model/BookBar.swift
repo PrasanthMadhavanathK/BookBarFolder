@@ -11,4 +11,8 @@ import Foundation
 struct BookBar {
     var bookMark: [BookMarks]?
     var folder:[Folder]?
+    
+    func addBookMarks(bookMark:[BookMarks]) -> Int {
+        return bookMark.count
+    }
 }

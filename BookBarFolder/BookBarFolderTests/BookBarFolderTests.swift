@@ -36,9 +36,19 @@ class BookBarFolderTests: XCTestCase {
         XCTAssertEqual(bookBar.bookMark?[0].link, "https://medium.com/@enricopiovesan/unit-testing-in-swift-tutorial-92daab95246b", "The Url Strings dont match")
     }
     
-    func testBookMarkWithFolder(){
+    func testBookBarWithFolder(){
         let bookBar = BookBar(bookMark: [BookMarks()], folder: [Folder(name: "Folder1")])
         XCTAssertEqual(bookBar.folder?[0].name, "Folder1", "FolderName Does not match")
+        XCTAssertEqual(bookBar.folder?.count, 1, "Folder count is equal")
+    }
+    
+    func addBookMarktoBookBar(){
+        let bookBar = BookBar()
+        let bookMark1 = BookMarks()
+        let bookMark2 = BookMarks()
+        let bookmarkArray = [bookMark1,bookMark2]
+        let bookmarkArrayCount = bookBar.addBookMarks(bookMark: bookmarkArray)
+        XCTAssertEqual(bookmarkArrayCount, bookmarkArray.count, "count does not match")
     }
 
 }
