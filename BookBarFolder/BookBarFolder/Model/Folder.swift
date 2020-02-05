@@ -1,5 +1,5 @@
 //
-//  BookBar.swift
+//  Folder.swift
 //  BookBarFolder
 //
 //  Created by Prasanth M Krishnadas on 2020-02-05.
@@ -8,7 +8,6 @@
 
 import Foundation
 
-struct BookBar {
-    var bookMark: [BookMarks]?
-    var folder:[Folder]?
+struct  Folder{
+    var name:String
 }

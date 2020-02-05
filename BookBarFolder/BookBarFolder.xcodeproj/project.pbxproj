@@ -16,6 +16,7 @@
 		8F47F7F023EA897600290F49 /* BookBarFolderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F47F7EF23EA897600290F49 /* BookBarFolderTests.swift */; };
 		8F47F7FC23EA8DF500290F49 /* BookBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F47F7FB23EA8DF500290F49 /* BookBar.swift */; };
 		8F47F7FE23EA907C00290F49 /* BookMarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F47F7FD23EA907C00290F49 /* BookMarks.swift */; };
+		8F47F80223EA947000290F49 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F47F80123EA947000290F49 /* Folder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		8F47F7F123EA897600290F49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F47F7FB23EA8DF500290F49 /* BookBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBar.swift; sourceTree = "<group>"; };
 		8F47F7FD23EA907C00290F49 /* BookMarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarks.swift; sourceTree = "<group>"; };
+		8F47F80123EA947000290F49 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			children = (
 				8F47F7FB23EA8DF500290F49 /* BookBar.swift */,
 				8F47F7FD23EA907C00290F49 /* BookMarks.swift */,
+				8F47F80123EA947000290F49 /* Folder.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				8F47F7DD23EA897300290F49 /* ViewController.swift in Sources */,
 				8F47F7D923EA897300290F49 /* AppDelegate.swift in Sources */,
 				8F47F7DB23EA897300290F49 /* SceneDelegate.swift in Sources */,
+				8F47F80223EA947000290F49 /* Folder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
