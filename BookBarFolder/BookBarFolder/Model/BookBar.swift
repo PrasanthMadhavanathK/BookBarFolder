@@ -19,4 +19,8 @@ struct BookBar {
     func addFolder(folders:[Folder]) -> Int {
         return folders.count
     }
+    
+    func addBookmarksOrFolders(combinedlist:[BookMarksAndFolderProtocol]) -> Int{
+        return combinedlist.count
+    }
 }

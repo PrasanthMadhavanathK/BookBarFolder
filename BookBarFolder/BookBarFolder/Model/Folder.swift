@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct  Folder{
+struct  Folder:BookMarksAndFolderProtocol{
     var name:String
 }
