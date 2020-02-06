@@ -13,8 +13,11 @@ struct  Folder:BookMarksAndFolderProtocol{
     
     var bookMark: [BookMarks]?
     var folder:[Folder]?
+    var combinedList = [BookMarksAndFolderProtocol]()
+
     
-    func addBookmarksOrFolders(combinedlist:[BookMarksAndFolderProtocol]) -> Int{
-           return combinedlist.count
-       }
+    mutating func addBookmarksOrFolders(bAndFElement:BookMarksAndFolderProtocol) -> Int{
+         self.combinedList.append(bAndFElement)
+         return self.combinedList.count
+     }
 }

@@ -43,56 +43,62 @@ class BookBarFolderTests: XCTestCase {
     }
     
     func testaddBookMarktoBookBar(){
-        let bookBar = BookBar()
+        var bookBar = BookBar()
         let bookMark1 = BookMarks()
         let bookMark2 = BookMarks()
         let bookmarkArray = [bookMark1,bookMark2]
-        let bookmarkArrayCount = bookBar.addBookMarks(bookMark: bookmarkArray)
+        var bookmarkArrayCount =  bookBar.addBookMarks(bookMark: bookMark1)
+        bookmarkArrayCount =  bookBar.addBookMarks(bookMark: bookMark2)
         XCTAssertEqual(bookmarkArrayCount, bookmarkArray.count, "count does not match")
     }
     
     func testaddFoldertoBookBar(){
-        let bookBar = BookBar()
+        var bookBar = BookBar()
         let folder1 = Folder(name: "F1")
         let folder2 = Folder(name: "F2")
         let folderArray = [folder1,folder2]
-        let folderArrayCount = bookBar.addFolder(folders:folderArray)
+        var folderArrayCount = bookBar.addFolder(folder:folder1)
+        folderArrayCount = bookBar.addFolder(folder:folder2)
         XCTAssertEqual(folderArrayCount, folderArray.count, "count does not match")
     }
     
     func testaddingBookmarsAndFoldersInBookbar()  {
-        let bookBar = BookBar()
+        var bookBar = BookBar()
         let bookMark1 = BookMarks()
         let folder1 = Folder(name: "F1")
         
-       // let combinedArray = [folder1,bookMark1,folder2,bookMark2]
+        // let combinedArray = [folder1,bookMark1,folder2,bookMark2]
         var combinedArray = [BookMarksAndFolderProtocol]()
         combinedArray.append(bookMark1)
         combinedArray.append(folder1)
-        let folderArrayCount = bookBar.addBookmarksOrFolders(combinedlist:combinedArray)
+        var folderArrayCount = bookBar.addBookmarksOrFolders(bAndFElement:bookMark1)
+        folderArrayCount = bookBar.addBookmarksOrFolders(bAndFElement:folder1)
         XCTAssertEqual(folderArrayCount, combinedArray.count, "count does not match")
-
+        
         
     }
     
     func testaddingBookmarsAndFoldersInBookMarks()  {
-         let folder = Folder()
-         let bookMark1 = BookMarks()
-         let folder1 = Folder(name: "F1")
-         let bookMark2 = BookMarks()
-         let folder2 = Folder(name: "F2")
-
+        var folder = Folder()
+        let bookMark1 = BookMarks()
+        let folder1 = Folder(name: "F1")
+        let bookMark2 = BookMarks()
+        let folder2 = Folder(name: "F2")
+        
         // let combinedArray = [folder1,bookMark1,folder2,bookMark2]
-         var combinedArray = [BookMarksAndFolderProtocol]()
-         combinedArray.append(bookMark1)
-         combinedArray.append(folder1)
+        var combinedArray = [BookMarksAndFolderProtocol]()
+        combinedArray.append(bookMark1)
+        combinedArray.append(folder1)
         combinedArray.append(bookMark2)
         combinedArray.append(folder2)
-
-         let folderArrayCount = folder.addBookmarksOrFolders(combinedlist:combinedArray)
-         XCTAssertEqual(folderArrayCount, combinedArray.count, "count does not match")
-
-         
-     }
+        
+        var combinedArrayCount = folder.addBookmarksOrFolders(bAndFElement:bookMark1)
+         combinedArrayCount = folder.addBookmarksOrFolders(bAndFElement:folder1)
+        combinedArrayCount = folder.addBookmarksOrFolders(bAndFElement:bookMark2)
+        combinedArrayCount = folder.addBookmarksOrFolders(bAndFElement:folder2)
+         XCTAssertEqual(combinedArrayCount, combinedArray.count, "count does not match")
+        
+        
+    }
     
 }

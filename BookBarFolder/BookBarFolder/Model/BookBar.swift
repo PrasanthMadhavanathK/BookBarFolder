@@ -11,17 +11,21 @@ import Foundation
 struct BookBar {
     var bookMark: [BookMarks]?
     var folder:[Folder]?
+    var combinedList = [BookMarksAndFolderProtocol]()
     
-    func addBookMarks(bookMark:[BookMarks]) -> Int {
+    mutating func addBookMarks(bookMark:BookMarks) -> Int? {
         
-        return bookMark.count
+        self.bookMark?.append(bookMark)
+        return self.bookMark?.count
     }
     
-    func addFolder(folders:[Folder]) -> Int {
-        return folders.count
+    mutating func addFolder(folder:Folder) -> Int? {
+        self.folder?.append(folder)
+        return self.folder?.count
     }
     
-    func addBookmarksOrFolders(combinedlist:[BookMarksAndFolderProtocol]) -> Int{
-        return combinedlist.count
+    mutating func addBookmarksOrFolders(bAndFElement:BookMarksAndFolderProtocol) -> Int{
+        self.combinedList.append(bAndFElement)
+        return self.combinedList.count
     }
 }
