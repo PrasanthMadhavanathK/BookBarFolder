@@ -10,9 +10,7 @@ import Foundation
 
 struct  Folder:BookMarksAndFolderProtocol{
     var name = ""
-    
-    var bookMark: [BookMarks]?
-    var folder:[Folder]?
+
     var combinedList = [BookMarksAndFolderProtocol]()
 
     

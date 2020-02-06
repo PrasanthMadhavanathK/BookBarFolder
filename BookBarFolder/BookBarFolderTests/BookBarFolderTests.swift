@@ -31,40 +31,40 @@ class BookBarFolderTests: XCTestCase {
         }
     }
     
-    func testBookBar(){
-        let bookBar = BookBar(bookMark: [BookMarks()])
-        XCTAssertEqual(bookBar.bookMark?[0].link, "https://medium.com/@enricopiovesan/unit-testing-in-swift-tutorial-92daab95246b", "The Url Strings dont match")
-    }
-    
-    func testBookBarWithFolder(){
-        let bookBar = BookBar(bookMark: [BookMarks()], folder: [Folder(name: "Folder1")])
-        XCTAssertEqual(bookBar.folder?[0].name, "Folder1", "FolderName Does not match")
-        XCTAssertEqual(bookBar.folder?.count, 1, "Folder count is equal")
-    }
-    
-    func testaddBookMarktoBookBar(){
-        var bookBar = BookBar()
-        let bookMark1 = BookMarks()
-        let bookMark2 = BookMarks()
-        let bookmarkArray = [bookMark1,bookMark2]
-        var bookmarkArrayCount =  bookBar.addBookMarks(bookMark: bookMark1)
-        bookmarkArrayCount =  bookBar.addBookMarks(bookMark: bookMark2)
-        XCTAssertEqual(bookmarkArrayCount, bookmarkArray.count, "count does not match")
-    }
-    
-    func testaddFoldertoBookBar(){
-        var bookBar = BookBar()
-        let folder1 = Folder(name: "F1")
-        let folder2 = Folder(name: "F2")
-        let folderArray = [folder1,folder2]
-        var folderArrayCount = bookBar.addFolder(folder:folder1)
-        folderArrayCount = bookBar.addFolder(folder:folder2)
-        XCTAssertEqual(folderArrayCount, folderArray.count, "count does not match")
-    }
+//    func testBookBar(){
+//        let bookBar = BookBar(bookMark: [BookMarks()])
+//        XCTAssertEqual(bookBar.bookMark?[0].link, "https://medium.com/@enricopiovesan/unit-testing-in-swift-tutorial-92daab95246b", "The Url Strings dont match")
+//    }
+//
+//    func testBookBarWithFolder(){
+//        let bookBar = BookBar(bookMark: [BookMarks()], folder: [Folder(name: "Folder1")])
+//        XCTAssertEqual(bookBar.folder?[0].name, "Folder1", "FolderName Does not match")
+//        XCTAssertEqual(bookBar.folder?.count, 1, "Folder count is equal")
+//    }
+//
+//    func testaddBookMarktoBookBar(){
+//        var bookBar = BookBar()
+//        let bookMark1 = BookMarks()
+//        let bookMark2 = BookMarks()
+//        let bookmarkArray = [bookMark1,bookMark2]
+//        var bookmarkArrayCount =  bookBar.addBookMarks(bookMark: bookMark1)
+//        bookmarkArrayCount =  bookBar.addBookMarks(bookMark: bookMark2)
+//        XCTAssertEqual(bookmarkArrayCount, bookmarkArray.count, "count does not match")
+//    }
+//
+//    func testaddFoldertoBookBar(){
+//        var bookBar = BookBar()
+//        let folder1 = Folder(name: "F1")
+//        let folder2 = Folder(name: "F2")
+//        let folderArray = [folder1,folder2]
+//        var folderArrayCount = bookBar.addFolder(folder:folder1)
+//        folderArrayCount = bookBar.addFolder(folder:folder2)
+//        XCTAssertEqual(folderArrayCount, folderArray.count, "count does not match")
+//    }
     
     func testaddingBookmarsAndFoldersInBookbar()  {
         var bookBar = BookBar()
-        let bookMark1 = BookMarks()
+        let bookMark1 = BookMarks(link: "https://medium.com/@enricopiovesan/unit-testing-in-swift-tutorial-92daab95246b")
         let folder1 = Folder(name: "F1")
         
         // let combinedArray = [folder1,bookMark1,folder2,bookMark2]
@@ -75,14 +75,13 @@ class BookBarFolderTests: XCTestCase {
         folderArrayCount = bookBar.addBookmarksOrFolders(bAndFElement:folder1)
         XCTAssertEqual(folderArrayCount, combinedArray.count, "count does not match")
         
-        
     }
     
     func testaddingBookmarsAndFoldersInBookMarks()  {
         var folder = Folder()
-        let bookMark1 = BookMarks()
+        let bookMark1 = BookMarks(link: "https://medium.com/@enricopiovesan/unit-testing-in-swift-tutorial-92daab95246b")
         let folder1 = Folder(name: "F1")
-        let bookMark2 = BookMarks()
+        let bookMark2 = BookMarks(link: "https://medium.com/@enricopiovesan/unit-testing-in-swift-tutorial-92daab95246b")
         let folder2 = Folder(name: "F2")
         
         // let combinedArray = [folder1,bookMark1,folder2,bookMark2]
