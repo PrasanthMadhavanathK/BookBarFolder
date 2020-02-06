@@ -31,36 +31,45 @@ class BookBarFolderTests: XCTestCase {
         }
     }
     
-//    func testBookBar(){
-//        let bookBar = BookBar(bookMark: [BookMarks()])
-//        XCTAssertEqual(bookBar.bookMark?[0].link, "https://medium.com/@enricopiovesan/unit-testing-in-swift-tutorial-92daab95246b", "The Url Strings dont match")
-//    }
-//
-//    func testBookBarWithFolder(){
-//        let bookBar = BookBar(bookMark: [BookMarks()], folder: [Folder(name: "Folder1")])
-//        XCTAssertEqual(bookBar.folder?[0].name, "Folder1", "FolderName Does not match")
-//        XCTAssertEqual(bookBar.folder?.count, 1, "Folder count is equal")
-//    }
-//
-//    func testaddBookMarktoBookBar(){
-//        var bookBar = BookBar()
-//        let bookMark1 = BookMarks()
-//        let bookMark2 = BookMarks()
-//        let bookmarkArray = [bookMark1,bookMark2]
-//        var bookmarkArrayCount =  bookBar.addBookMarks(bookMark: bookMark1)
-//        bookmarkArrayCount =  bookBar.addBookMarks(bookMark: bookMark2)
-//        XCTAssertEqual(bookmarkArrayCount, bookmarkArray.count, "count does not match")
-//    }
-//
-//    func testaddFoldertoBookBar(){
-//        var bookBar = BookBar()
-//        let folder1 = Folder(name: "F1")
-//        let folder2 = Folder(name: "F2")
-//        let folderArray = [folder1,folder2]
-//        var folderArrayCount = bookBar.addFolder(folder:folder1)
-//        folderArrayCount = bookBar.addFolder(folder:folder2)
-//        XCTAssertEqual(folderArrayCount, folderArray.count, "count does not match")
-//    }
+    func testBookBar(){
+        var bookBar = BookBar()
+        let bookMark1 = BookMarks(link: "https://medium.com/@enricopiovesan/unit-testing-in-swift-tutorial-92daab95246b")
+        bookBar.combinedList.append(bookMark1)
+
+        if let bookmark = bookBar.combinedList[0] as? BookMarks{
+           
+        XCTAssertEqual(bookmark.link ,"https://medium.com/@enricopiovesan/unit-testing-in-swift-tutorial-92daab95246b", "The Url Strings dont match")
+        }
+    }
+
+    func testAddingBookBarWithFolder(){
+        var bookBar = BookBar()
+        let folder = Folder()
+        bookBar.combinedList.append(folder)
+        
+    
+        XCTAssertEqual(bookBar.combinedList.count, 1, "Folder count is equal")
+    }
+
+    func testcheckBookMarkcountInBookBar(){
+        var bookBar = BookBar()
+        let bookMark1 = BookMarks(link: "https://yahoo.com")
+        let bookMark2 = BookMarks(link: "https://google.com")
+        let bookmarkArray = [bookMark1,bookMark2]
+        var bookmarkArrayCount =  bookBar.addBookmarksOrFolders(bAndFElement: bookMark1)
+        bookmarkArrayCount =  bookBar.addBookmarksOrFolders(bAndFElement: bookMark2)
+        XCTAssertEqual(bookmarkArrayCount, bookmarkArray.count, "count does not match")
+    }
+
+    func testcheckFolderCountInBookBar(){
+        var bookBar = BookBar()
+        let folder1 = Folder(name: "F1")
+        let folder2 = Folder(name: "F2")
+        let folderArray = [folder1,folder2]
+        var folderArrayCount = bookBar.addBookmarksOrFolders(bAndFElement: folder1)
+        folderArrayCount = bookBar.addBookmarksOrFolders(bAndFElement: folder2)
+        XCTAssertEqual(folderArrayCount, folderArray.count, "count does not match")
+    }
     
     func testaddingBookmarsAndFoldersInBookbar()  {
         var bookBar = BookBar()
@@ -77,7 +86,7 @@ class BookBarFolderTests: XCTestCase {
         
     }
     
-    func testaddingBookmarsAndFoldersInBookMarks()  {
+    func testaddingBookmarsAndFoldersInFolders()  {
         var folder = Folder()
         let bookMark1 = BookMarks(link: "https://medium.com/@enricopiovesan/unit-testing-in-swift-tutorial-92daab95246b")
         let folder1 = Folder(name: "F1")
@@ -96,7 +105,6 @@ class BookBarFolderTests: XCTestCase {
         combinedArrayCount = folder.addBookmarksOrFolders(bAndFElement:bookMark2)
         combinedArrayCount = folder.addBookmarksOrFolders(bAndFElement:folder2)
          XCTAssertEqual(combinedArrayCount, combinedArray.count, "count does not match")
-        
         
     }
     

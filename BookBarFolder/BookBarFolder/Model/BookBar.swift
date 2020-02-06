@@ -10,8 +10,9 @@ import Foundation
 
 struct BookBar {
 
+    var bookMarks:BookMarks?
     var combinedList = [BookMarksAndFolderProtocol]()
-
+    
     
     mutating func addBookmarksOrFolders(bAndFElement:BookMarksAndFolderProtocol) -> Int{
         self.combinedList.append(bAndFElement)
