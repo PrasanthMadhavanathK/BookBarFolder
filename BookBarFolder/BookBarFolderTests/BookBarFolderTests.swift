@@ -108,4 +108,26 @@ class BookBarFolderTests: XCTestCase {
         
     }
     
+    func testCheckObjectTypeInBookbars(){
+        var bookBar = BookBar()
+          let bookMark1 = BookMarks(link: "https://medium.com/@enricopiovesan/unit-testing-in-swift-tutorial-92daab95246b")
+        
+        bookBar.addBookmarksOrFolders(bAndFElement: bookMark1)
+        
+        if let bookmark = bookBar.combinedList[0] as? BookMarks{
+            XCTAssertEqual(bookmark.link , bookMark1.link)
+        }
+        
+    }
+    
+    func testCheckFolderObjectInBookBars(){
+        var bookBar = BookBar()
+        let folder1 = Folder(name: "F1")
+        bookBar.addBookmarksOrFolders(bAndFElement: folder1)
+        
+        if let folder = bookBar.combinedList[0] as? Folder{
+            XCTAssertEqual(folder.name, folder1.name, "The objects are not the same")
+        }
+    }
+    
 }
